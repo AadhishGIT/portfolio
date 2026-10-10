@@ -1,0 +1,1078 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aadhish Dhamnikar — Lead Software Engineer</title>
+    <style>
+      :root {
+        --bg-primary: #f8fafc;
+        --bg-card: #ffffff;
+        --bg-alt: #f1f5f9;
+        --text-main: #0f172a;
+        --text-muted: #475569;
+        --primary: #0284c7;
+        --primary-hover: #0369a1;
+        --primary-light: #e0f2fe;
+        --border-color: #e2e8f0;
+        --shadow:
+          0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --accent: #6366f1;
+        --font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+          Arial, sans-serif;
+      }
+
+      .dark-mode {
+        --bg-primary: #0f172a;
+        --bg-card: #1e293b;
+        --bg-alt: #0f172a;
+        --text-main: #f8fafc;
+        --text-muted: #94a3b8;
+        --primary: #38bdf8;
+        --primary-hover: #0284c7;
+        --primary-light: #1e3a8a;
+        --border-color: #334155;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--font-family);
+        background-color: var(--bg-primary);
+        color: var(--text-main);
+        line-height: 1.6;
+        transition:
+          background-color 0.3s,
+          color 0.3s;
+      }
+
+      a {
+        color: var(--primary);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      /* Container */
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      /* Navbar */
+      header {
+        position: sticky;
+        top: 0;
+        background-color: var(--bg-card);
+        border-bottom: 1px solid var(--border-color);
+        z-index: 1000;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      }
+
+      .nav-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 70px;
+      }
+
+      .logo {
+        font-size: 1.25rem;
+        font-weight: 800;
+        color: var(--text-main);
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 1.5rem;
+      }
+
+      nav a {
+        color: var(--text-muted);
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+
+      nav a:hover {
+        color: var(--primary);
+        text-decoration: none;
+      }
+
+      .theme-btn {
+        background: none;
+        border: 1px solid var(--border-color);
+        padding: 0.4rem 0.8rem;
+        border-radius: 8px;
+        cursor: pointer;
+        color: var(--text-main);
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+
+      /* Hero Section */
+      .hero {
+        padding: 4rem 0 3rem;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 2.5rem;
+        align-items: center;
+      }
+
+      @media (max-width: 768px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+        nav ul {
+          display: none;
+        }
+      }
+
+      .badge {
+        display: inline-block;
+        background-color: var(--primary-light);
+        color: var(--primary);
+        padding: 0.25rem 0.75rem;
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        border: 1px solid var(--primary);
+      }
+
+      .hero h1 {
+        font-size: 2.75rem;
+        font-weight: 800;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+      }
+
+      .hero h1 span {
+        color: var(--primary);
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+        color: var(--text-muted);
+        font-weight: 500;
+        margin-bottom: 1.25rem;
+      }
+
+      .summary {
+        color: var(--text-muted);
+        margin-bottom: 2rem;
+        font-size: 1rem;
+      }
+
+      /* Highlights Grid */
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .stat-card {
+        background-color: var(--bg-card);
+        border: 1px solid var(--border-color);
+        padding: 1rem;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: var(--shadow);
+      }
+
+      .stat-number {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--primary);
+      }
+
+      .stat-label {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+
+      .btn {
+        display: inline-block;
+        background-color: var(--primary);
+        color: #ffffff !important;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        font-weight: 700;
+        text-decoration: none !important;
+        box-shadow: 0 4px 10px rgba(2, 132, 199, 0.3);
+        margin-right: 1rem;
+      }
+
+      .btn:hover {
+        background-color: var(--primary-hover);
+      }
+
+      .btn-secondary {
+        background-color: transparent;
+        color: var(--text-main) !important;
+        border: 1px solid var(--border-color);
+        box-shadow: none;
+      }
+
+      .btn-secondary:hover {
+        background-color: var(--bg-alt);
+      }
+
+      /* Sidebar Info Card */
+      .info-card {
+        background-color: var(--bg-card);
+        border: 1px solid var(--border-color);
+        padding: 1.75rem;
+        border-radius: 16px;
+        box-shadow: var(--shadow);
+      }
+
+      .profile-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 1.2rem;
+      }
+
+      .info-list {
+        list-style: none;
+        margin-bottom: 1.5rem;
+      }
+
+      .info-list li {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid var(--border-color);
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+
+      .info-list li strong {
+        color: var(--text-main);
+      }
+
+      /* Section Styling */
+      section {
+        padding: 3.5rem 0;
+      }
+
+      .section-alt {
+        background-color: var(--bg-alt);
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 2.5rem;
+      }
+
+      .section-title h2 {
+        font-size: 2rem;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+      }
+
+      .section-title p {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+      }
+
+      /* Timeline / Experience Cards */
+      .exp-card {
+        background-color: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        box-shadow: var(--shadow);
+      }
+
+      .exp-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1.25rem;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 1rem;
+      }
+
+      .exp-title {
+        font-size: 1.35rem;
+        font-weight: 800;
+      }
+
+      .exp-company {
+        font-size: 1rem;
+        color: var(--primary);
+        font-weight: 700;
+      }
+
+      .exp-date {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        font-weight: 600;
+        text-align: right;
+      }
+
+      .exp-list {
+        padding-left: 1.2rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .exp-list li {
+        margin-bottom: 0.6rem;
+        font-size: 0.95rem;
+        color: var(--text-muted);
+      }
+
+      .exp-list li strong {
+        color: var(--text-main);
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .tag {
+        background-color: var(--bg-alt);
+        color: var(--text-main);
+        padding: 0.25rem 0.6rem;
+        border-radius: 6px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        border: 1px solid var(--border-color);
+      }
+
+      /* Skills Grid */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .skill-category {
+        background-color: var(--bg-card);
+        border: 1px solid var(--border-color);
+        padding: 1.5rem;
+        border-radius: 16px;
+        box-shadow: var(--shadow);
+      }
+
+      .skill-category h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--primary);
+      }
+
+      /* Grid 2 Column */
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+
+      @media (max-width: 768px) {
+        .grid-2 {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .card {
+        background-color: var(--bg-card);
+        border: 1px solid var(--border-color);
+        padding: 1.5rem;
+        border-radius: 16px;
+        box-shadow: var(--shadow);
+        margin-bottom: 1rem;
+      }
+
+      .card-title {
+        font-size: 1.05rem;
+        font-weight: 700;
+        margin-bottom: 0.3rem;
+      }
+
+      .card-sub {
+        font-size: 0.85rem;
+        color: var(--primary);
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      .card-desc {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+      }
+
+      /* Contact Section */
+      .contact-box {
+        background-color: #0f172a;
+        color: #ffffff;
+        border-radius: 20px;
+        padding: 3rem 2rem;
+      }
+
+      .contact-box h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .contact-box p {
+        color: #94a3b8;
+        margin-bottom: 2rem;
+      }
+
+      .contact-info {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .contact-info li {
+        margin-bottom: 1rem;
+        font-size: 1rem;
+        color: #cbd5e1;
+      }
+
+      .contact-info a {
+        color: #38bdf8;
+      }
+
+      footer {
+        text-align: center;
+        padding: 2rem 0;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        border-top: 1px solid var(--border-color);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header / Navbar -->
+    <header>
+      <div class="container">
+        <div class="nav-wrapper">
+          <div class="logo">Aadhish Dhamnikar</div>
+          <nav>
+            <ul>
+              <li><a href="#about">About</a></li>
+              <li><a href="#experience">Experience</a></li>
+              <li><a href="#skills">Skills</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#achievements">Achievements</a></li>
+              <li><a href="#education">Education</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+          <button class="theme-btn" onclick="toggleTheme()">
+            🌓 Toggle Mode
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="about" class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <span class="badge">Lead Software Engineer • Technical Lead • 8+ Years Experience</span>
+            <h1>Hi, I'm <span>Aadhish Dhamnikar</span></h1>
+            <div class="subtitle">
+              Lead Software Engineer | Technical Lead | Fullstack Developer
+            </div>
+            <p class="summary">
+              Fullstack Developer and Technical Lead with 8+ years of experience
+              building secure, scalable web applications for financial services
+              and consumer analytics platforms (State Street, MRI Simmons) using
+              React.js, TypeScript, Java (Spring Boot), microservices and Node.js.
+              Experienced in leading agile teams, building reusable component
+              libraries, and meeting WCAG 2.1 accessibility standards. Hands-on
+              experience setting up automated Jenkins CI/CD pipelines, moving
+              teams to Trunk-Based Development, and scanning code with SonarQube
+              for OWASP Top 10 security compliance.
+            </p>
+
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-number">8+ Yrs</div>
+                <div class="stat-label">Enterprise Exp</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">40%</div>
+                <div class="stat-label">Dev Acceleration</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">7 Devs</div>
+                <div class="stat-label">Team Leadership</div>
+              </div>
+            </div>
+
+            <div>
+              <a href="#contact" class="btn">Get In Touch</a>
+              <a
+                href="https://linkedin.com/in/aadhish-dhamnikar-82640396"
+                target="_blank"
+                class="btn btn-secondary"
+                >LinkedIn Profile</a
+              >
+            </div>
+          </div>
+
+          <div>
+            <div class="info-card">
+              <div class="profile-header">
+                <div class="avatar">AD</div>
+                <div>
+                  <h3 style="font-weight: 800; font-size: 1.1rem">
+                    Aadhish Dhamnikar
+                  </h3>
+                  <div style="font-size: 0.8rem; color: var(--text-muted)">
+                    Pune, India
+                  </div>
+                </div>
+              </div>
+              <ul class="info-list">
+                <li>
+                  <strong>Email:</strong>
+                  <a href="mailto:asdhamnikar@gmail.com"
+                    >asdhamnikar@gmail.com</a
+                  >
+                </li>
+                <li>
+                  <strong>Phone:</strong>
+                  <a href="tel:+919113858145">+91-9113858145</a>
+                </li>
+                <li>
+                  <strong>LinkedIn:</strong>
+                  <a
+                    href="https://linkedin.com/in/aadhish-dhamnikar-82640396"
+                    target="_blank"
+                    >aadhish-dhamnikar</a
+                  >
+                </li>
+              </ul>
+              <div
+                style="
+                  font-size: 0.8rem;
+                  font-weight: 700;
+                  color: var(--text-muted);
+                  margin-bottom: 0.5rem;
+                  text-transform: uppercase;
+                "
+              >
+                Core Tech Stack
+              </div>
+              <div class="tags">
+                <span class="tag">React JS</span>
+                <span class="tag">React.js</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">JavaScript (ES6+)</span>
+                <span class="tag">Java / Spring Boot</span>
+                <span class="tag">Node.js / Express</span>
+                <span class="tag">Micro Frontends</span>
+                <span class="tag">RESTful APIs</span>
+                <span class="tag">Jenkins CI/CD</span>
+                <span class="tag">Docker</span>
+                <span class="tag">WCAG 2.1/2.2</span>
+                <span class="tag">GitHub Copilot</span>
+                <span class="tag">Generative AI</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section-alt">
+      <div class="container">
+        <div class="section-title">
+          <h2>Work Experience</h2>
+          <p>Full-stack product engineering, API architecture, and team leadership</p>
+        </div>
+
+        <!-- Wipro -->
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <div class="exp-title">Technical Lead</div>
+              <div class="exp-company">
+                Wipro (Client: MRI Simmons — Leading US Consumer Insights
+                Platform)
+              </div>
+            </div>
+            <div class="exp-date">
+              <div>Jun 2021 – Present</div>
+              <div>Pune, India</div>
+            </div>
+          </div>
+          <ul class="exp-list">
+            <li>
+              <strong>Full-Stack Development:</strong> Built scalable REST APIs
+              and backend services using <strong>Java (Spring Boot)</strong>,
+              while developing responsive web frontends with React.js and
+              TypeScript for an enterprise consumer analytics platform.
+            </li>
+            <li>
+              <strong>UI Platform & Accessibility:</strong> Designed and
+              maintained a reusable micro-frontend system and shared UI
+              component library. Followed <strong>WCAG 2.1 AA</strong>
+              accessibility standards and helped teams cut feature build time by
+              <strong>35%</strong>.
+            </li>
+            <li>
+              <strong>Code Security & Scanning:</strong> Integrated automated
+              security and quality scans into CI/CD pipelines using
+              <strong>SonarQube</strong>. Fixed vulnerabilities and kept code
+              aligned with <strong>OWASP Top 10</strong> security standards.
+            </li>
+            <li>
+              <strong>Trunk-Based CI/CD:</strong> Moved the team from complex
+              Gitflow to <strong>Trunk-Based Development</strong> to speed up
+              release cycles. Set up automated <strong>Jenkins CI/CD</strong>
+              pipelines for automated testing, Docker builds, and deployments.
+            </li>
+            <li>
+              <strong>Automated Testing (TDD/BDD):</strong> Applied
+              <strong>TDD</strong> and <strong>BDD</strong> workflows. Wrote
+              unit and integration tests using <strong>Vitest, Jest, and React
+              Testing Library</strong>, plus API contract tests. Performed
+              root-cause analysis on recurring defects and added tests to
+              prevent repeats, lowering bug rates by <strong>30%</strong>.
+            </li>
+            <li>
+              <strong>Team Leadership & Agile:</strong> Led a
+              <strong>7-member agile team</strong>. Ran sprint planning, daily
+              standups, code reviews, and product demos with Product Owners,
+              balancing user needs with system performance.
+            </li>
+            <li>
+              <strong>AI-Assisted Engineering & Responsible AI:</strong>
+              Increased team delivery speed by <strong>40%</strong> by adopting
+              GitHub Copilot and GenAI tools. Set standards for validating
+              AI-generated code for correctness, performance, and security
+              through peer review, automated tests, and SonarQube scans. Coached
+              developers on safe AI use, data sensitivity, and secure handling
+              of inputs and outputs.
+            </li>
+            <li>
+              <strong>Mentoring & Clean Code:</strong> Mentored junior developers
+              on Factory, Adapter, Singleton, and Dependency Injection patterns
+              and clean coding practices.
+            </li>
+          </ul>
+          <div class="tags">
+            <span class="tag">React.js</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">Java (Spring Boot)</span>
+            <span class="tag">Micro Frontends</span>
+            <span class="tag">WCAG 2.1 AA</span>
+            <span class="tag">Jenkins Pipelines</span>
+            <span class="tag">Docker</span>
+            <span class="tag">SonarQube / OWASP Top 10</span>
+            <span class="tag">TDD / BDD</span>
+            <span class="tag">GitHub Copilot</span>
+            <span class="tag">Responsible AI</span>
+          </div>
+        </div>
+
+        <!-- Cognizant -->
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <div class="exp-title">Programmer Analyst</div>
+              <div class="exp-company">
+                Cognizant Technology Solutions (Client: State Street
+                Corporation)
+              </div>
+            </div>
+            <div class="exp-date">
+              <div>May 2018 – Jun 2021</div>
+              <div>Pune, India</div>
+            </div>
+          </div>
+          <ul class="exp-list">
+            <li>
+              <strong>Financial Services Application Development:</strong> Built
+              and supported web applications for institutional asset managers
+              at State Street, managing multi-million-dollar investment
+              portfolios.
+            </li>
+            <li>
+              <strong>UI & API Integration:</strong> Developed responsive UI
+              modules using <strong>React.js</strong> and <strong>Redux</strong>,
+              connecting them with backend <strong>REST services</strong> built
+              in <strong>Node.js</strong> for real-time financial tracking.
+            </li>
+            <li>
+              <strong>Performance Optimization:</strong> Refactored frontend
+              code, added <strong>code-splitting</strong> and
+              <strong>lazy loading</strong>, and reduced initial page load times
+              by <strong>30%</strong>.
+            </li>
+            <li>
+              <strong>Testing & Code Quality:</strong> Wrote comprehensive unit
+              and component test suites to keep releases stable and ensure data
+              accuracy across financial screens.
+            </li>
+            <li>
+              <strong>Agile Collaboration:</strong> Collaborated with global
+              engineering teams in daily <strong>Scrum</strong> ceremonies,
+              sprint reviews, and peer code reviews.
+            </li>
+          </ul>
+          <div class="tags">
+            <span class="tag">React.js</span>
+            <span class="tag">Redux Toolkit</span>
+            <span class="tag">JavaScript (ES6+)</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">RESTful APIs</span>
+            <span class="tag">Financial Services</span>
+            <span class="tag">Jest</span>
+            <span class="tag">Agile / Scrum</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-title">
+          <h2>Technical Skills</h2>
+          <p>Categorized technical capabilities and tools</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3>Frontend</h3>
+            <div class="tags">
+              <span class="tag">React.js</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">JavaScript (ES6+)</span>
+              <span class="tag">Next.js</span>
+              <span class="tag">React Native</span>
+              <span class="tag">Micro Frontends</span>
+              <span class="tag">Redux Toolkit</span>
+              <span class="tag">Webpack</span>
+              <span class="tag">Vite</span>
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">Tailwind CSS</span>
+              <span class="tag">Material UI</span>
+              <span class="tag">WCAG 2.1/2.2</span>
+              <span class="tag">D3.js</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3>Backend & APIs</h3>
+            <div class="tags">
+              <span class="tag">Java</span>
+              <span class="tag">Spring Boot</span>
+              <span class="tag">Core Java</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">Express</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">RESTful APIs</span>
+              <span class="tag">API Gateway</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">Event-Driven Architecture</span>
+              <span class="tag">Microservices</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3>CI/CD & DevOps</h3>
+            <div class="tags">
+              <span class="tag">Trunk-Based Development</span>
+              <span class="tag">Gitflow</span>
+              <span class="tag">Git</span>
+              <span class="tag">Jenkins Pipelines</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Jira</span>
+              <span class="tag">Agile / Scrum</span>
+              <span class="tag">Vercel</span>
+              <span class="tag">Railway</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3>Security & Code Quality</h3>
+            <div class="tags">
+              <span class="tag">OWASP Top 10</span>
+              <span class="tag">SonarQube</span>
+              <span class="tag">Vulnerability Remediation</span>
+              <span class="tag">Secure Coding</span>
+              <span class="tag">SLAs / TPS / Auth</span>
+              <span class="tag">Root-Cause Analysis</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3>Testing & Debugging</h3>
+            <div class="tags">
+              <span class="tag">Test-Driven Development (TDD)</span>
+              <span class="tag">BDD</span>
+              <span class="tag">Vitest</span>
+              <span class="tag">Jest</span>
+              <span class="tag">React Testing Library</span>
+              <span class="tag">API Contract Testing</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3>Design Patterns & GenAI</h3>
+            <div class="tags">
+              <span class="tag">Factory</span>
+              <span class="tag">Adapter</span>
+              <span class="tag">Singleton</span>
+              <span class="tag">Dependency Injection</span>
+              <span class="tag">Generative AI</span>
+              <span class="tag">GitHub Copilot</span>
+              <span class="tag">Python</span>
+              <span class="tag">LangChain</span>
+              <span class="tag">ChromaDB</span>
+              <span class="tag">AI-Assisted Development</span>
+              <span class="tag">Responsible AI</span>
+              <span class="tag">AI Code Validation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-alt">
+      <div class="container">
+        <div class="section-title">
+          <h2>Technical Project</h2>
+          <p>AI-powered document search and assistant</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-title">AI-Powered Document Search & Assistant</div>
+            <div class="card-sub">
+              Full-Stack RAG System · React, TypeScript, FastAPI, Python,
+              LangChain, ChromaDB
+            </div>
+            <div class="card-desc">
+              Built a full-stack document search tool that lets users ask
+              questions about PDF documents and get clear, accurate answers.
+              Created a React and TypeScript interface connected to FastAPI
+              backend APIs with LangChain and ChromaDB vector search, packaged
+              and deployed via Vercel and Railway.
+            </div>
+            <div class="tags" style="margin-top: 1rem">
+              <span class="tag">FastAPI</span>
+              <span class="tag">React</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">Python</span>
+              <span class="tag">LangChain</span>
+              <span class="tag">ChromaDB</span>
+              <span class="tag">Vercel</span>
+              <span class="tag">Railway</span>
+            </div>
+            <a
+              href="https://github.com/AadhishGIT/ChatApp"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn"
+              style="margin-top: 1.25rem"
+              >View on GitHub</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications & Achievements -->
+    <section id="achievements" class="section-alt">
+      <div class="container">
+        <div class="grid-2">
+          <div>
+            <div
+              style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1.5rem"
+            >
+              Certifications
+            </div>
+            <div class="card">
+              <div class="card-title">
+                Accelerate App Development using GitHub Copilot
+              </div>
+              <div class="card-sub">Microsoft Learn</div>
+              <div class="card-desc">
+                Certification in AI-assisted application development with
+                GitHub Copilot.
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div
+              style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1.5rem"
+            >
+              Key Achievements
+            </div>
+            <div class="card">
+              <div class="card-title">
+                Personalized Leadership Recognition (2022-2023)
+              </div>
+              <div class="card-desc">
+                Received a personalized appreciation letter from executive
+                leadership for exceptional individual performance and project
+                delivery.
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-title">
+                Outstanding Teamwork Certificate (FY 2021-2022)
+              </div>
+              <div class="card-desc">
+                Awarded an appreciation certificate for outstanding teamwork and
+                cross-functional collaboration.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+      <div class="container">
+        <div class="section-title">
+          <h2>Education</h2>
+          <p>Academic qualifications and specialized programs</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div
+              style="font-size: 0.8rem; font-weight: 700; color: var(--primary)"
+            >
+              Aug 2026
+            </div>
+            <div class="card-title">
+              Executive Program: Data Driven Decision Making using Generative AI
+            </div>
+            <div class="card-sub">
+              IIM Mumbai & Masai School
+            </div>
+          </div>
+
+          <div class="card">
+            <div
+              style="font-size: 0.8rem; font-weight: 700; color: var(--primary)"
+            >
+              Feb 2018
+            </div>
+            <div class="card-title">
+              Post Graduate Diploma in Mobile Computing (PGDMC)
+            </div>
+            <div class="card-sub">CDAC ACTS · Bangalore, India</div>
+          </div>
+
+          <div class="card">
+            <div
+              style="font-size: 0.8rem; font-weight: 700; color: var(--primary)"
+            >
+              Jun 2017
+            </div>
+            <div class="card-title">Bachelor of Engineering (B.E.)</div>
+            <div class="card-sub">
+              St. Vincent Pallotti College of Engineering and Technology,
+              Nagpur, India
+            </div>
+            <div class="card-desc">
+              Engineering degree with a CGPA of <strong>7.58</strong>.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <h2>Let's Connect & Collaborate</h2>
+          <p>
+            Open for opportunities in full-stack engineering and technical
+            leadership, building secure, scalable web applications and leading
+            high-performing teams.
+          </p>
+
+          <ul class="contact-info">
+            <li>
+              <strong>Email:</strong>
+              <a href="mailto:asdhamnikar@gmail.com">asdhamnikar@gmail.com</a>
+            </li>
+            <li>
+              <strong>Phone:</strong>
+              <a href="tel:+919113858145">+91-9113858145</a>
+            </li>
+            <li>
+              <strong>LinkedIn:</strong>
+              <a
+                href="https://linkedin.com/in/aadhish-dhamnikar-82640396"
+                target="_blank"
+                >linkedin.com/in/aadhish-dhamnikar-82640396</a
+              >
+            </li>
+            <li><strong>Location:</strong> Pune, India</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>© 2026 Aadhish Dhamnikar • Lead Software Engineer | Technical Lead | Fullstack Developer</p>
+      </div>
+    </footer>
+
+    <script>
+      function toggleTheme() {
+        document.body.classList.toggle("dark-mode");
+      }
+    </script>
+  </body>
+</html>
