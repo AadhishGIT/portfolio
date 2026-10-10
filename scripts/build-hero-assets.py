@@ -11,7 +11,7 @@ import shutil
 import subprocess
 import wave
 import numpy as np
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image
 
 def get_ffmpeg():
     paths = [
@@ -184,7 +184,6 @@ def main():
 
         # og.jpg
         og = Image.new('RGB', (1200, 630), color='#f4f2ee')
-        draw = ImageDraw.Draw(og)
         bust_thumb = resized.resize((360, 450), Image.Resampling.LANCZOS)
         og.paste(bust_thumb, (760, 90))
         og.save('public/og.jpg', 'JPEG', quality=90)

@@ -19,7 +19,6 @@ export interface Profile {
   idCard: {
     idNo: string;
     dept: string;
-    validTill: string;
     highlights: string[];
     quote: string;
   };
@@ -116,7 +115,6 @@ export const PROFILE: Profile = {
   idCard: {
     idNo: 'ENG-2017-8264',
     dept: 'Full-Stack Architecture & Lead Engineering',
-    validTill: '2026 (IIM Mumbai Exec)',
     highlights: [
       'Lead Software Engineer & Technical Lead with 8+ years in enterprise platforms',
       'Bachelor of Engineering (CGPA 7.58) · CDAC PGDMC · IIM Mumbai GenAI',

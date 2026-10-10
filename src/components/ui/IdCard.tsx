@@ -113,7 +113,7 @@ export const IdCard: React.FC = () => {
             <div>
               <div className="w-8 h-2 bg-neutral-200 rounded-full mx-auto mb-3 border border-neutral-300" />
               <div className="bg-[#0d0d0d] text-white text-[11px] font-mono tracking-[0.2em] py-1 px-3 rounded-md text-center uppercase font-semibold">
-                Developer ID · Wipro / State St.
+                Developer ID · Wipro.
               </div>
             </div>
 
@@ -149,10 +149,6 @@ export const IdCard: React.FC = () => {
               <div className="flex justify-between">
                 <span className="text-neutral-400">LOC</span>
                 <span className="font-semibold text-neutral-800">{PROFILE.location}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-neutral-400">VALID TILL</span>
-                <span className="font-semibold text-neutral-800">{PROFILE.idCard.validTill}</span>
               </div>
             </div>
 
