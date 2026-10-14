@@ -21,7 +21,7 @@ export function App() {
       ) : (
         <ModernPortfolio />
       )}
-
+//toggle button for switching between classic and modern portfolio views
       <button
         type="button"
         onClick={() => setIsModernView((showingModern) => !showingModern)}
